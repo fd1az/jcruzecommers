@@ -4,7 +4,7 @@
 $conexion = mysqli_connect("localhost","root","","tiendajcruz");
 
 //Primera peticion a la base, seleccionamo los productos
-$peticion = "SELECT * FROM productos";
+$peticion = "SELECT * FROM productos WHERE stock > 0 ";
 
 //obtenemo el resultado de la consulta
 $result = mysqli_query($conexion,$peticion);

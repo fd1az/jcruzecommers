@@ -15,13 +15,13 @@
         <title>Jcruz Ecommers</title>
     </head>
     <body>
-        <div class="container-fluid">
+        <div class="container">
             <header>
                <a href="index.php"><h1>Jcruz Ecommers</h1></a>
                 <h2>Subtitulo tienda</h2>
             </header>
             <section>
-            <div class="container-fluid">
+            <div class="container">
                 <div class="row">
                     <div class="col col-lg-4 jumbotron jumbotron-fluid" id="carrito" style="background:rgb(200,200,200); color:black">
                     

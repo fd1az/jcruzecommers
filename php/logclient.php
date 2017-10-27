@@ -1,6 +1,6 @@
 <?php 
 
-session_start();
+include 'cabecera.php';
 
 $contador = 0;
 //Conexion a la Base de Datos
@@ -34,15 +34,57 @@ if($contador > 0){
     echo $_SESSION['idpedido'];
 
     for($i = 0; $i < $_SESSION['contador']; $i++){
-   
+        //Inserto en la base lineas pedido, el id de pedido.
         $peticion = "INSERT INTO lineaspedido VALUES (NULL, '".$_SESSION['idpedido']."','".$_SESSION['producto'][$i]."','1' )";
         $result = mysqli_query($conexion,$peticion);
         
-};
+        //control de stock
+        // 1- selecciono el producto vendido
+        $peticion = "SELECT * FROM productos WHERE id='".$_SESSION['producto'][$i]."'";
+        $result = mysqli_query($conexion,$peticion);
+        //itero sobro el array
+        while($fila = mysqli_fetch_array($result)){
+            $existencia = $fila['stock'];
+            //Actualizo la tabla de productos, restando 1 por cada seleccion
+            $peticion2 = "UPDATE productos SET stock = '".($existencia - 1)."'WHERE id='".$_SESSION['producto'][$i]."'";
+            $result2 = mysqli_query($conexion,$peticion2);
 
+        }
+        
+    };
+
+
+echo "<br>
+    <div class='col-lg-4'>
+        <div class='alert alert-success' role='alert'>
+            <p>Tu pedido se ha realizado exitosamente! Redirigiedo a la pagia principal..</p>
+        </div>
+    </div>";
+    session_destroy();
+echo "<script>
+        setTimeout('redirige()', 4000);
+        function redirige(){
+            window.location = '../index.php';
+        }
+    </script>";
+include 'footer_page.php';  
 
 }else{
-    echo "El usuario no existe";
+    echo "<br>
+          <br>
+            <div class='container-fuild'> 
+                <div class='col-lg-4'>
+                    <div class='alert alert-danger' role='alert'>
+                        <p>Error, el usuario no existe..</p>
+                    </div>
+                </div>
+            </div>";
+    echo "<script>
+        setTimeout('redirige()', 4000);
+        function redirige(){
+            window.location = '../confirmar.php';
+        }
+    </script>";
 }
 mysqli_close($conexion);
 ?>
