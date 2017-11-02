@@ -1,10 +1,11 @@
+<?php include('config.php')?>
 <?php 
 
 include 'cabecera.php';
 
 $contador = 0;
 //Conexion a la Base de Datos
-$conexion = mysqli_connect("localhost","root","","tiendajcruz");
+$conexion = mysqli_connect($server,$user,"",$databesetienda);
 
 //Primera peticion a la base, seleccionamo los productos
 $peticion = "SELECT * FROM clientes WHERE user='".$_POST['user']."' AND password='".$_POST['password']."'";

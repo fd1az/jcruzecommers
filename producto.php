@@ -1,7 +1,8 @@
 <?php require_once('php/cabecera.php')?>
+<?php include('php/config.php')?>
 <?php
 //Conexion a la Base de Datos
-$conexion = mysqli_connect("localhost","root","","tiendajcruz");
+$conexion = mysqli_connect($server,$user,"",$databesetienda);
 
 //Primera peticion a la base, seleccionamo los productos
 $peticion = "SELECT * FROM productos WHERE id=".$_GET['id']." LIMIT 1";
