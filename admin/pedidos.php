@@ -26,6 +26,7 @@
                                         <th>Cancelar</th>
                                     </tr>
                                 </thead>";
+                                echo '<tbody>';
                         //convierto la consulta en un Array asociativo e itero sobre el
                         while($fila = mysqli_fetch_array($result)){
                         $estado = $fila['estado'];
@@ -41,8 +42,8 @@
                                 break;
                             
                         }
-                        echo '<tbody>
-                                <tr';
+                        
+                        echo        '<tr';
                                 if($estado == 0){
                                      echo' class="table-warning"';
                                     }elseif($estado == 1){
@@ -51,15 +52,16 @@
                                         echo' class="table-danger"';
                                     };
                                 echo'>
-                                    <td>'.$fila['nombre']." ".$fila['apellidos'].'</td>
+                                   <td>'.$fila['nombre']." ".$fila['apellidos'].'</td>
                                     <td>'.date("M d Y H:i:s",$fila['fecha']).'</td>
                                     <td>'.$get_estado.'</td>
                                     <td><a href="gestionpedido.php?id='.$fila['idpedido'].'"><div class="trans text-center"><button class="btn btn-primary">Ver</button></div></div></a></td>
                                     <td><a href="../php/enviarpedido.php?id='.$fila['idpedido'].'"><button class="btn btn-primary ">Enviar Pedido</button></a></td>
                                     <td><a href="../php/cancelarpedido.php?id='.$fila['idpedido'].'"><button class="btn btn-danger ">Cancelar Pedido</button></a></td>
-                                </tr>
-                            </tbody>';
+                                </tr>';
+                            
                         };
+                        echo '</tbody>';
                         mysqli_close($conexion);
 
                         ?>

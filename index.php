@@ -19,6 +19,7 @@ while($fila = mysqli_fetch_array($result)){
     while($fila2 = mysqli_fetch_array($result2)){
         echo "<img src='photo/".$fila2['imagen']."' width=100px>";
     };
+    echo "<br>";
     echo "<a href='preducto.php?id=".$fila['id']."'><h3>".$fila['nombre']." "."</h3></a>";
     echo "<p>".$fila['descripcion']." "."</p>";
     echo "<p> Precio: $".$fila['precio']."</p>";

@@ -6,8 +6,8 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-        <script type="text/javascript" src="js/jquery-3.2.1.js"></script>
-        <script type="text/javascript" src="js/main.js"></script>
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+        <script type="text/javascript" src="../js/jquery-3.2.1.js"></script>
         <title>Jcruz Ecommers</title>
     </head>
     <body>
@@ -24,5 +24,11 @@
                 <a class="nav-item nav-link" href="clientes.php">Clientes</a>
             </div>
         </div>
+        <div class="row">
+            <div class="col aling-self-end">
+                <?=date('m/d/Y g:ia');?> 
+            </div>
+        </div>
+
     </nav>
         </div>
