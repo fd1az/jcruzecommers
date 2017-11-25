@@ -106,13 +106,9 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                    </div>
-                                
-                                </div>
-                                            
+                                    </div>                             
+                                </div>  
                             </div>
-                            
-                            
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-12">
                             <br>
@@ -145,6 +141,7 @@
                             $result = mysqli_query($conexion,$peticion);
                             echo " <thead>
                                         <tr>
+                                            <th style='width: 90px;'class='col-sm-1'>ID</th>
                                             <th class='col-sm-2'>Nombre</th>
                                             <th class='col-sm-2'>Apellidos</th>
                                             <th class='col-sm-2'>Email</th>
@@ -165,27 +162,28 @@
                             //convierto la consulta en un Array asociativo e itero sobre el
                             echo '<tbody>';
                             while($fila = mysqli_fetch_array($result)){
-                        
+                                
                         
                             echo '
 
                                 
                                     <tr>
-                                        <td class="">'.$fila['nombre'].'</td>
-                                        <td class="">'.$fila['apellidos'].'</td>
+                                        <td>'.$fila['id'].'</td>
+                                        <td>'.$fila['nombre'].'</td>
+                                        <td>'.$fila['apellidos'].'</td>
                                         <td>'.$fila['email'].'</td>
-                                        <td class="">'.$fila['user'].'</td>
-                                        <td class="">'.$fila['tel'].'</td>   
-                                        <td class="">'.$fila['cel'].'</td>   
-                                        <td class="">'.$fila['calle'].'</td> 
-                                        <td class="">'.$fila['cp'].'</td>
-                                        <td class="">'.$fila['ciudad'].'</td>
-                                        <td class="">'.$fila['pais'].'</td>
-                                        <td class="">'.$fila['documtip'].'</td>
-                                        <td class="">'.$fila['documento'].'</td>
+                                        <td>'.$fila['user'].'</td>
+                                        <td>'.$fila['tel'].'</td>   
+                                        <td>'.$fila['cel'].'</td>   
+                                        <td>'.$fila['calle'].'</td> 
+                                        <td>'.$fila['cp'].'</td>
+                                        <td>'.$fila['ciudad'].'</td>
+                                        <td>'.$fila['pais'].'</td>
+                                        <td>'.$fila['documtip'].'</td>
+                                        <td>'.$fila['documento'].'</td>
                                     
-                                        <td>    
-                                            <button type="submit" class="btn btn-secondary btn-sm">Actualizar</button>
+                                        <td>
+                                        <a><button class="updateClient btn btn-secondary  btn-sm">Actualizar</button></a>
                                         </td>
                                         <td>
                                             <a onclick="deleteCliente('.$fila['id'].')"><button class="btn btn-danger btn-sm">Eliminar</button></a>
@@ -194,6 +192,7 @@
                             
                             };
                             echo '</tbody>';
+
                             mysqli_close($conexion);
 
                             ?>
@@ -201,9 +200,109 @@
                     </div>
                 </div>
         </div> 
-         
-   
-   
+        <!-- Modal -->
+        <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Actualizacion de Cliente</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="actualizarcliente.php" method="POST">                
+                <div class="modal-body">
+                
+                    <div class="form-group row">
+                        <label for="inputPassword" class="col-sm-2 col-form-label">ID:</label>
+                        <div class="col-sm-2 input-group-sm">
+                            <input type="text" name="id" class="form-control" id="inputid" readonly>
+                        </div>
+                    </div>        
+                    <div class="form-group row">
+                        <label for="inputPassword" class="col-sm-2 col-form-label">Nombre:</label>
+                        <div class="col-sm-8 input-group-sm">
+                            <input type="text" name="nombre" class="form-control" value id="inputname" >
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="inputPassword" class="col-sm-2 col-form-label">Apellidos:</label>
+                        <div class="col-sm-8 input-group-sm">
+                            <input type="text"class="form-control" name="apellidos" id="inputlastname" >
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="inputPassword" class="col-sm-2 col-form-label">Email</label>
+                        <div class="col-sm-6 input-group-sm">
+                            <input type="text" name="email" class="form-control" id="inputemail" >
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="inputPassword" class="col-sm-2 col-form-label">User</label>
+                        <div class="col-sm-8 input-group-sm">
+                            <input type="text" name="user" class="form-control" id="inputuser" >
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="inputPassword" class="col-sm-2 col-form-label">Tel:</label>
+                        <div class="col-sm-8 input-group-sm">
+                            <input type="text" name="tel" class="form-control" id="inputtel" >
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="inputPassword" class="col-sm-2 col-form-label">Cel</label>
+                        <div class="col-sm-8 input-group-sm">
+                            <input type="text" name="cel" class="form-control" id="inputcel" >
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="inputPassword" class="col-sm-2 col-form-label">Calle</label>
+                        <div class="col-sm-8 input-group-sm">
+                            <input type="text" name="calle"class="form-control" id="inputcalle" >
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="inputPassword" class="col-sm-2 col-form-label">CP</label>
+                        <div class="col-sm-4 input-group-sm">
+                            <input type="text" name="cp" class="form-control" id="inputcp" >
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="inputPassword" class="col-sm-2 col-form-label">Ciudad</label>
+                        <div class="col-sm-8 input-group-sm">
+                            <input type="text" name="ciudad"class="form-control" id="inputciudad" >
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="inputPassword" class="col-sm-2 col-form-label">Pais</label>
+                        <div class="col-sm-8 input-group-sm">
+                            <input type="text" name="pais"class="form-control" id="inputpais" >
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="inputPassword" class="col-sm-2 col-form-label">Tipo Doc</label>
+                        <div class="col-sm-4 input-group-sm">
+                            <input type="text" name="documtip" class="form-control" id="inputtipdoc" >
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="inputPassword" class="col-sm-2 col-form-label">Numero</label>
+                        <div class="col-sm-8 input-group-sm">
+                            <input type="text" name="documento" class="form-control" id="inputnumdoc" >
+                        </div>
+                    </div>
+                                    
+                </div>
+                    
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                </div>
+              </form>  
+            </div>
+        </div>
+        </div>
+	
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
@@ -217,6 +316,37 @@
         
             };
 
+        </script>
+        <script>
+            $(document).ready(function(){
+                $(".updateClient").click(function(){
+ 
+                var valores=[];
+ 
+            // Obtenemos todos los valores contenidos en los <td> de la fila
+            // seleccionada
+                $(this).parents("tr").find("td").each(function(){
+				console.log($(this).html())
+                valores.push($(this).html());
+				
+                });
+			    valores.pop()
+                        $("#inputid").val(valores[0]);
+                        $("#inputname").val(valores[1]);
+                        $("#inputlastname").val(valores[2]);
+                        $("#inputemail").val(valores[3]);
+                        $("#inputuser").val(valores[4]);
+                        $("#inputtel").val(valores[5]);
+                        $("#inputcel").val(valores[6]);
+                        $("#inputcalle").val(valores[7]);
+                        $("#inputcp").val(valores[8]);
+                        $("#inputciudad").val(valores[9]);
+                        $("#inputpais").val(valores[10]);
+                        $("#inputtipdoc").val(valores[11]);
+                        $("#inputnumdoc").val(valores[12]);
+                        $("#updateModal").modal('show');
+                    });
+                });
         </script>
     </body>
 </html>
