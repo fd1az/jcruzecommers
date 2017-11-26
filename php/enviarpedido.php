@@ -3,7 +3,7 @@
 //Conexion a la Base de Datos
 $conexion = mysqli_connect($server,$user,"",$databesetienda);
 
-//Primera peticion a la base, seleccionamo los productos
+//Primera peticion a la base, actualizando estados de pedidos
 $peticion = "UPDATE pedidos SET estado= 1 WHERE id = '".$_GET['id']."'";
 //obtenemo el resultado de la consulta
 $result = mysqli_query($conexion,$peticion);

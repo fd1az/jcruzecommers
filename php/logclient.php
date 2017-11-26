@@ -7,10 +7,10 @@ $contador = 0;
 //Conexion a la Base de Datos
 $conexion = mysqli_connect($server,$user,"",$databesetienda);
 
-//Primera peticion a la base, seleccionamo los productos
+//Primera peticion a la base, validacion clientes
 $peticion = "SELECT * FROM clientes WHERE user='".$_POST['user']."' AND password='".$_POST['password']."'";
 
-//obtenemo el resultado de la consulta
+//obtenemos el resultado de la consulta
 $result = mysqli_query($conexion,$peticion);
 
 //convierto la consulta en un Array asociativo e itero sobre el
