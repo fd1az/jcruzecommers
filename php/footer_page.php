@@ -11,7 +11,4 @@
     </body>
 </html>
 
-<?php 
-    include("php/log.php");
-
-?>
+<?php include("log.php");?>
