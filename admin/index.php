@@ -11,7 +11,7 @@
         <title>Jcruz Ecommers</title>
     </head>
     <body>
-        <div class="conteiner">
+        <div class="conteiner-fluid">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <a class="navbar-brand" href="#">Panel de Control</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -22,6 +22,9 @@
                 <a class="nav-item nav-link" href="pedidos.php">Pedidos</a>
                 <a class="nav-item nav-link" href="productos.php">Productos</a>
                 <a class="nav-item nav-link" href="clientes.php">Clientes</a>
+                <a class="nav-item nav-link" href="estadisticas.php">Data</a>
+            </div>
+
             </div>
         </div>
         <div class="row">

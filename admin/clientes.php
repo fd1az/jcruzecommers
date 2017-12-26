@@ -11,7 +11,7 @@
 
                             <div class="col-xs-12 col-sm-12 col-md-6">
                                 <div class="row">
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-6    ">
                                         <div class="form-group">
                                             <label for="name" class="control-label">Nombre</label>
                                             <input class="form-control" name="nombre" placeholder="Nombre" maxlength="40" type="text">
@@ -141,21 +141,21 @@
                             $result = mysqli_query($conexion,$peticion);
                             echo " <thead>
                                         <tr>
-                                            <th style='width: 90px;'class='col-sm-1'>ID</th>
-                                            <th class='col-sm-2'>Nombre</th>
-                                            <th class='col-sm-2'>Apellidos</th>
-                                            <th class='col-sm-2'>Email</th>
-                                            <th class='col-sm-2'>User</th>
-                                            <th class='col-sm-2'>Tel</th>
-                                            <th class='col-sm-2'>Cel</th>
-                                            <th class='col-sm-2'>Calle</th>
-                                            <th class='col-sm-2'>CP</th>
-                                            <th class='col-sm-2'>Ciudad</th>
-                                            <th class='col-sm-2'>Pais</th>
-                                            <th class='col-sm-2'>Tipo Doc</th>
-                                            <th class='col-sm-2'>Documento</th>
-                                            <th class='col-sm-2'>Actualizar</th>
-                                            <th class='col-sm-2'>Eliminar</th>
+                                            <th style='width: 50px;'class='col-sm-1'>ID</th>
+                                            <th>Nombre</th>
+                                            <th>Apellidos</th>
+                                            <th>Email</th>
+                                            <th>User</th>
+                                            <th>Tel</th>
+                                            <th>Cel</th>
+                                            <th>Calle</th>
+                                            <th>CP</th>
+                                            <th>Ciudad</th>
+                                            <th>Pais</th>
+                                            <th>Tipo Doc</th>
+                                            <th>Documento</th>
+                                            <th>Actualizar</th>
+                                            <th>Eliminar</th>
                                             
                                         </tr>
                                     </thead>";
