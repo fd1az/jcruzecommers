@@ -15,6 +15,7 @@
         <link rel="stylesheet" href="css/main.css">
         <script type="text/javascript" src="js/jquery-3.2.1.js"></script>
         <script type="text/javascript" src="js/main.js"></script>
+        <script type="text/javascript" src="js/validate.js"></script>
         <title>Jcruz Ecommers</title>
     </head>
     <body>

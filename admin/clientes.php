@@ -11,7 +11,7 @@
 
                             <div class="col-xs-12 col-sm-12 col-md-6">
                                 <div class="row">
-                                    <div class="col-sm-6    ">
+                                    <div class="col-sm-6">
                                         <div class="form-group">
                                             <label for="name" class="control-label">Nombre</label>
                                             <input class="form-control" name="nombre" placeholder="Nombre" maxlength="40" type="text">

@@ -10,6 +10,7 @@ $.get('php/addcarrito.php?p=' + $(this).val(), function (params) {
         $('#carrito').html(params);
     });
 }
-            
+
+
             
         
